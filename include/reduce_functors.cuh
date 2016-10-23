@@ -3,7 +3,7 @@
 
 /////////////////////////////////////////////////
 //  Author: Daniel Jünger                      //
-//  Github: github.com/sleeepyjack/ratchreduce //
+//  Github: github.com/sleeepyjack/batchreduce //
 //  Data  : 21. Oct. 2016                      //
 /////////////////////////////////////////////////
 
