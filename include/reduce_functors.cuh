@@ -7,7 +7,7 @@
 //  Data  : 21. Oct. 2016                      //
 /////////////////////////////////////////////////
 
-#include "cuda_helpers.cuh"
+#include "cudahelpers/cuda_helpers.cuh"
 
 template <typename value_t>
 struct sum_op_t {

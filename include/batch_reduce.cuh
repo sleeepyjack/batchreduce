@@ -7,7 +7,7 @@
 //  Data  : 21. Oct. 2016                      //
 /////////////////////////////////////////////////
 
-#include "cuda_helpers.cuh"
+#include "cudahelpers/cuda_helpers.cuh"
 
 template <
   typename index_t,

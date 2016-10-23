@@ -1,8 +1,8 @@
-#include "cuda_helpers.cuh"
+#include "include/cudahelpers/cuda_helpers.cuh"
 #include <iostream>
 #include <algorithm>
-#include "batch_reduce.cuh"
-#include "reduce_functors.cuh"
+#include "include/batch_reduce.cuh"
+#include "include/reduce_functors.cuh"
 
 int main()
 {
