@@ -26,7 +26,7 @@ GLOBALQUALIFIER void reduce_kernel(const value_t * in, index_t b, index_t n, val
 
       if(warp >= n) return;
 
-      _out = 0;
+      _out = op_t::identity();
 
       #pragma unroll 32
       for(index_t i = 0; i < b; i += 32)

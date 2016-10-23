@@ -8,6 +8,7 @@
 /////////////////////////////////////////////////
 
 #include "cudahelpers/cuda_helpers.cuh"
+#include <limits>
 
 template <typename value_t>
 struct sum_op_t {
@@ -16,6 +17,12 @@ struct sum_op_t {
     value_t operator() (value_t & base, value_t x) const
     {
         return base + x;
+    }
+
+    HOSTDEVICEQUALIFIER INLINEQUALIFIER
+    static const value_t identity()
+    {
+        return 0;
     }
 };
 
@@ -27,6 +34,12 @@ struct max_op_t {
     {
         return (x > base) ? x : base;
     }
+
+    HOSTDEVICEQUALIFIER INLINEQUALIFIER
+    static const value_t identity()
+    {
+        return std::numeric_limits<value_t>::min();
+    }
 };
 
 template <typename value_t>
@@ -36,6 +49,12 @@ struct min_op_t {
     value_t operator() (value_t & base, value_t x) const
     {
         return (x < base) ? x : base;
+    }
+
+    HOSTDEVICEQUALIFIER INLINEQUALIFIER
+    static const value_t identity()
+    {
+        return std::numeric_limits<value_t>::max();
     }
 };
 

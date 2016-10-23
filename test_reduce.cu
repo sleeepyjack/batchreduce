@@ -6,7 +6,6 @@
 
 int main()
 {
-  cudaSetDevice(1);
   typedef uint64_t index_t;
   typedef uint32_t value_t;
   typedef sum_op_t<value_t> op_t;
@@ -14,7 +13,7 @@ int main()
   typedef BatchReduce<index_t, value_t, op_t> reduce_t;
   reduce_t reduce = reduce_t();
 
-  constexpr index_t n = (1UL << 21); //number of batches
+  constexpr index_t n = (1UL << 20); //number of batches
   constexpr index_t b = (1UL << 10); //batch size
 
   value_t * in = new value_t[n*b];
@@ -40,7 +39,7 @@ int main()
   #pragma omp parallel for
   for(index_t i = 0; i < n; i++)
   {
-    value_t _out = 0;
+    value_t _out = op_t::identity();
     for(index_t j = 0; j < b; j++)
     {
       _out = op(_out, in[i*b + j]);
