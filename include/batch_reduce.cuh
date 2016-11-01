@@ -32,7 +32,7 @@ GLOBALQUALIFIER void reduce_kernel(const value_t * in, index_t b, index_t n, val
       for(index_t i = 0; i < b; i += 32)
       {
           if(i+lane < b)
-              _out = op(_out, in[base+i+lane]);
+              _out = op(_out, __popc(in[base+i+lane])); // popcount added
       }
 
       for (index_t offset = 16; offset > 0; offset /= 2)
